@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <main role="main">
+  <main role="main" class="main">
 <!--   CONVERTER -->
     <section class="converter">
 <!--     HEADER -->
@@ -20,9 +20,9 @@
       </header>
 <!--      Converter body with input & unit selector -->
       <div class="converter__body">
-        <form action="#">
-          <input type="number" placeholder="Enter selected unit..." min="0" id="input">
-          <select name="units" id="">
+        <form action="#" class="converter__form">
+          <input type="number" placeholder="Enter selected unit..." min="0" id="input" class="converter__input">
+          <select name="units" class="converter__select">
             <option value="default" selected disabled>select unit</option>
             <option value="km">Kilometers</option>
             <option value="yard">Yards</option>
@@ -32,19 +32,26 @@
         </form>
       </div>
 <!--      Output divs    -->
-      <section id="outputDiv">
-        <h4></h4>
-        <span class="output"></span>
-        <h4></h4>
-        <span class="output"></span>
-        <h4></h4>
-        <span class="output"></span>
-        <h4></h4>
-        <span class="output"></span>
+      <section class="outputbox" id="outputbox">
+        <div class="outputdiv">
+          <h4></h4>
+          <span class="converter__output"></span>
+        </div>
+        <div class="outputdiv">
+          <h4></h4>
+          <span class="converter__output"></span>
+        </div>
+        <div class="outputdiv">
+          <h4></h4>
+          <span class="converter__output"></span>
+        </div>
+        <div class="outputdiv">
+          <h4></h4>
+          <span class="converter__output"></span>
+        </div>
       </section>
     </section>
   </main>
-
 <script src="script.js"></script>
 </body>
 </html>
