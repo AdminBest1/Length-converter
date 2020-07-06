@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <title>Length converter</title>
+</head>
+<body>
+
+  <main role="main">
+<!--   CONVERTER -->
+    <section class="converter">
+<!--     HEADER -->
+      <header class="converter__header">
+      Length converter
+      </header>
+<!--      Converter body with input & unit selector -->
+      <div class="converter__body">
+        <form action="#">
+          <input type="number" placeholder="Enter selected unit..." min="0" id="input">
+          <select name="units" id="">
+            <option value="default" selected disabled>select unit</option>
+            <option value="km">Kilometers</option>
+            <option value="yard">Yards</option>
+            <option value="feet">Feet</option>
+            <option value="nm">Nautical mile</option>
+          </select>
+        </form>
+      </div>
+<!--      Output divs    -->
+      <section id="outputDiv">
+        <h4></h4>
+        <span class="output"></span>
+        <h4></h4>
+        <span class="output"></span>
+        <h4></h4>
+        <span class="output"></span>
+        <h4></h4>
+        <span class="output"></span>
+      </section>
+    </section>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
