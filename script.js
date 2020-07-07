@@ -6,9 +6,37 @@ const input = document.querySelector('#input');
 // array from outputs (come to h4 with previous element sibling)
 const outputs = Array.from(document.querySelectorAll('.converter__output'));
 
-// Disabling input without unit & display none for output
+// Disabling input without unit selected & display none for output
 input.setAttribute('disabled', '');
 document.querySelector('#outputbox').style.display = "none";
+
+// Calculate KILOMETERS function
+function calcKm() {
+    outputs[0].innerHTML = input.value * 3280.84; // to Feet
+    outputs[1].innerHTML = input.value * 1093.61; // to Yards
+    outputs[2].innerHTML = input.value / 1.852; // to Nautical mile
+}
+
+// Calculate YARDS function
+function calcYards() {
+    outputs[0].innerHTML = input.value / 1093.61; // to Kilometers
+    outputs[1].innerHTML = input.value * 3; // to Feet
+    outputs[2].innerHTML = input.value / 2025.37; // to Nautical mile
+}
+
+// Calculate FEET function
+function calcFeet() {
+    outputs[0].innerHTML = input.value / 3280.84; // to Kilometers
+    outputs[1].innerHTML = input.value / 3; // to Yards
+    outputs[2].innerHTML = input.value / 6076; // to Nautical mile
+}
+
+// Calculate NAUTICAL MILE function
+function calcNm() {
+    outputs[0].innerHTML = input.value * 1.852; // to Kilometers
+    outputs[1].innerHTML = input.value * 2025.37; // to Yards
+    outputs[2].innerHTML = input.value * 6076.12; // to Feet
+}
 
 // event when select changed
 const select = document.querySelector('select');
@@ -30,18 +58,11 @@ function changingSelect(e) {
             outputs[i].previousElementSibling.innerHTML = units[i];
         }
 
-        // Calculate event KILOMETERS
-        input.addEventListener(`input`, () => {
-            outputs[0].innerHTML = input.value * 3280.84; // to Feet
-            outputs[1].innerHTML = input.value * 1093.61; // to Yards
-            outputs[2].innerHTML = input.value / 1.852; // to Nautical mile
-        })
+        // Calc Kilometers
+        input.addEventListener(`input`, calcKm);
 
         // Double for already inputed value
-
-        outputs[0].innerHTML = input.value * 3280.84; // to Feet
-        outputs[1].innerHTML = input.value * 1093.61; // to Yards
-        outputs[2].innerHTML = input.value / 1.852; // to Nautical mile
+        calcKm();
     }
 
     // YARDS SELECTED
@@ -54,16 +75,10 @@ function changingSelect(e) {
         }
 
         // Calculate event YARDS
-        input.addEventListener(`input`, () => {
-            outputs[0].innerHTML = input.value / 1093.61; // to Kilometers
-            outputs[1].innerHTML = input.value * 3; // to Feet
-            outputs[2].innerHTML = input.value / 2025.37; // to Nautical mile
-        })
+        input.addEventListener(`input`, calcYards);
 
         // Double for already inputed value
-        outputs[0].innerHTML = input.value / 1093.61; // to Kilometers
-        outputs[1].innerHTML = input.value * 3; // to Feet
-        outputs[2].innerHTML = input.value / 2025; // to Nautical mile
+        calcYards();
     }
 
     // FEET SELECTED
@@ -76,16 +91,10 @@ function changingSelect(e) {
         }
 
         // Calculate event FEET
-        input.addEventListener(`input`, () => {
-            outputs[0].innerHTML = input.value / 3280.84; // to Kilometers
-            outputs[1].innerHTML = input.value / 3; // to Yards
-            outputs[2].innerHTML = input.value / 6076; // to Nautical mile
-        })
+        input.addEventListener(`input`, calcFeet);
 
         // Double for already inputed value
-        outputs[0].innerHTML = input.value / 3280.84; // to Kilometers
-        outputs[1].innerHTML = input.value / 3; // to Yards
-        outputs[2].innerHTML = input.value / 6076.12; // to Nautical mile
+        calcFeet();
     }
 
     // NAUTICAL MILE SELECTED
@@ -98,16 +107,10 @@ function changingSelect(e) {
         }
 
         // Calculate event NAUTICAL MILE
-        input.addEventListener(`input`, () => {
-            outputs[0].innerHTML = input.value * 1.852; // to Kilometers
-            outputs[1].innerHTML = input.value * 2025.37; // to Yards
-            outputs[2].innerHTML = input.value * 6076.12; // to Feet
-        })
+        input.addEventListener(`input`, calcNm)
 
         // Double for already inputed value
-            outputs[0].innerHTML = input.value * 1.852; // to Kilometers
-            outputs[1].innerHTML = input.value * 2025.37; // to Yards
-            outputs[2].innerHTML = input.value * 6076.12; // to Feet
+        calcNm();
     }
 }
 
